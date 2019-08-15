@@ -16,7 +16,6 @@ def get_files():
 
 def check_integrity():
 	files = get_files()
-
 	results = []
 
 	for file in files[1:]:
@@ -31,12 +30,11 @@ def check_integrity():
 		else:
 			res = 'Corrupted'
 
-		# print('block {} is: {}'.format(prev_file, res))
+		print('block {} is: {}'.format(prev_file, res))
 
 		results.append({'block': prev_file, 'result': res})
 
 	return results
-
  
 
 def write_block(name, amount, to_whom, prev_hash=''):
@@ -52,7 +50,6 @@ def write_block(name, amount, to_whom, prev_hash=''):
 
 	with open(blockchain_dir + filename, 'w') as file:
 		json.dump(data, file, indent=4, ensure_ascii=False)
-
 
 
 def main():
